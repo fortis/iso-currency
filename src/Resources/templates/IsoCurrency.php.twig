@@ -27,6 +27,10 @@ class IsoCurrency
 
     public function __construct($currencyCode, $customMinorUnit = null)
     {
+        if (preg_match('/^[a-zA-Z0-9]+$/', $currencyCode) !== 1) {
+            throw new \InvalidArgumentException('The currency code must be alphanumeric and non empty.');
+        }
+
         if (!isset(self::CURRENCIES[$currencyCode])) {
             throw new \InvalidArgumentException('Undefined currency code.');
         }
