@@ -19,6 +19,7 @@ Very simple and easy-to-use `IsoCurrency` class to work with ISO 4217 currencies
      * @return IsoCurrency
      */
     public function createEURCurrency() {
+        // return new IsoCurrency('EUR');
         // return IsoCurrency::create('EUR');
         return IsoCurrency::EUR();
     }
