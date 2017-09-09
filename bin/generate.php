@@ -9,19 +9,23 @@ use IsoCurrency\Generation\Generator;
 
 require_once __DIR__."/../vendor/autoload.php";
 
-$guzzle = new GuzzleClient();
-$adapter = new GuzzleAdapter($guzzle);
-$currencyIsoClient = new CurrencyIsoApiClient($adapter, new GuzzleMessageFactory);
-$loader = new Twig_Loader_Filesystem(__DIR__.'/../src/Resources/templates');
-$twig = new Twig_Environment($loader);
-$fileWriter = new FileWriter();
+try {
+    $guzzle = new GuzzleClient();
+    $adapter = new GuzzleAdapter($guzzle);
+    $currencyIsoClient = new CurrencyIsoApiClient($adapter, new GuzzleMessageFactory);
+    $loader = new Twig_Loader_Filesystem(__DIR__.'/../src/Resources/templates');
+    $twig = new Twig_Environment($loader);
+    $fileWriter = new FileWriter();
 
-$generator = new Generator(
-    $currencyIsoClient,
-    $twig,
-    $fileWriter,
-    'IsoCurrency.php.twig',
-    __DIR__.'/../src/IsoCurrency.php'
-);
+    $generator = new Generator(
+        $currencyIsoClient,
+        $twig,
+        $fileWriter,
+        'IsoCurrency.php.twig',
+        __DIR__.'/../src/IsoCurrency.php'
+    );
 
-$generator->generate();
+    $generator->generate();
+} catch (\Exception $exception) {
+    error_log($exception->getMessage());
+}
