@@ -393,7 +393,9 @@ class IsoCurrency
 
         $this->code = $currencyCode;
         $this->numericCode = self::CURRENCIES[$currencyCode]['numericCode'];
-        $this->minorUnit = $customMinorUnit ?: self::CURRENCIES[$currencyCode]['minorUnit'];
+        $this->minorUnit = null !== $customMinorUnit
+            ? $customMinorUnit
+            : self::CURRENCIES[$currencyCode]['minorUnit'];
     }
 
     public static function create($currencyCode, $customMinorUnit = null)
