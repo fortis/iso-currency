@@ -2,7 +2,7 @@
 
 namespace IsoCurrency\Generation;
 
-class FileWriter implements FileWriterInterface
+class FileWriter
 {
     public function write($destination, $data)
     {
