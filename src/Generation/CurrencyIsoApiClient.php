@@ -4,6 +4,7 @@ namespace IsoCurrency\Generation;
 
 use Http\Client\HttpClient;
 use Http\Message\RequestFactory;
+use RuntimeException;
 
 class CurrencyIsoApiClient
 {
@@ -24,6 +25,8 @@ class CurrencyIsoApiClient
 
     /**
      * @return array
+     * @throws RuntimeException
+     * @throws \HttpResponseException
      * @throws \Http\Client\Exception
      * @throws \Exception
      */
@@ -33,7 +36,11 @@ class CurrencyIsoApiClient
 
         $request = $this->requestFactory->createRequest('GET', self::URL);
         $response = $this->httpClient->sendRequest($request);
-        $xml = new \SimpleXMLElement($response->getBody());
+        if (!$body = $response->getBody()) {
+            throw new RuntimeException('Empty response from currencies provider.');
+        }
+
+        $xml = new \SimpleXMLElement($body);
 
         foreach ($xml->{'CcyTbl'}->{'CcyNtry'} as $countryXml) {
             $code = (string)$countryXml->{'Ccy'};
