@@ -76,4 +76,12 @@ class IsoCurrencyTest extends TestCase
         $currency = IsoCurrency::USD();
         $this->assertEquals(2, $currency->getMinorUnit());
     }
+
+    public function testJsonSerialization()
+    {
+        $currency = IsoCurrency::USD();
+        $json = json_encode($currency);
+        $data = json_decode($json);
+        $this->assertTrue($currency->is(IsoCurrency::create($data->code)));
+    }
 }
