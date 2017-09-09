@@ -388,7 +388,7 @@ class IsoCurrency
         }
 
         if ($customMinorUnit < 0) {
-            throw new InvalidCurrencyException('minorUnit cannot be less than zero.');
+            throw new InvalidCurrencyException('customMinorUnit cannot be less than zero.');
         }
 
         $this->code = $currencyCode;
