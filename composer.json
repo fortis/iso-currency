@@ -25,8 +25,8 @@
         }
     },
     "scripts": {
-        "update-currencies": [
-            "php ./bin/update-currencies.php"
+        "generate-iso-currency": [
+            "php ./bin/generate-iso-currency.php"
         ]
     }
 }
