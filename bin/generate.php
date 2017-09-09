@@ -2,6 +2,7 @@
 
 use IsoCurrency\Generation\CurrencyIsoClient;
 use IsoCurrency\Generation\Country;
+use IsoCurrency\Generation\FileWriter;
 use IsoCurrency\Generation\Generator;
 
 require_once __DIR__."/../vendor/autoload.php";
@@ -20,5 +21,6 @@ foreach ($countries as $country) {
 
 $loader = new Twig_Loader_Filesystem(__DIR__.'/../src/Resources/templates');
 $twig = new Twig_Environment($loader);
-$generator = new Generator($twig, 'IsoCurrency.php.twig', __DIR__.'/../src/IsoCurrency.php');
+$fileWriter = new FileWriter();
+$generator = new Generator($twig, $fileWriter, 'IsoCurrency.php.twig', __DIR__.'/../src/IsoCurrency.php');
 $generator->generate(['currencyCodes' => array_keys($currencies), 'currencies' => $currencies,]);
