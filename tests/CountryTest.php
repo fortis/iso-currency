@@ -11,7 +11,13 @@ class CountryTest extends TestCase
     {
         $this->assertInstanceOf(
             Country::class,
-            new Country('', 'USD', 'USD', 857, 2)
+            new Country(
+                'UNITED STATES OF AMERICA (THE)',
+                'US Dollar',
+                'USD',
+                840,
+                2
+            )
         );
     }
 }
