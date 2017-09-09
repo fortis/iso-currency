@@ -26,7 +26,7 @@
     },
     "scripts": {
         "generate-iso-currency": [
-            "php ./bin/generate-iso-currency.php"
+            "php ./bin/generate.php"
         ]
     }
 }
