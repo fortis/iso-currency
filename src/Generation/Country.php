@@ -14,11 +14,11 @@ final class Country
     /**
      * @var string
      */
-    private $currency;
+    private $currencyName;
     /**
      * @var string
      */
-    private $entity;
+    private $name;
     /**
      * @var int
      */
@@ -29,17 +29,17 @@ final class Country
     private $numericCode;
 
     /**
-     * @param string $entity
-     * @param string $currency
+     * @param string $name
+     * @param string $currencyName
      * @param string $alphabeticCode
      * @param int    $numericCode
      * @param int    $minorUnit
      */
-    public function __construct($entity, $currency, $alphabeticCode, $numericCode, $minorUnit)
+    public function __construct($name, $currencyName, $alphabeticCode, $numericCode, $minorUnit)
     {
         $this->alphabeticCode = $alphabeticCode;
-        $this->currency = $currency;
-        $this->entity = $entity;
+        $this->currencyName = $currencyName;
+        $this->name = $name;
         $this->minorUnit = $minorUnit;
         $this->numericCode = $numericCode;
     }
@@ -55,17 +55,17 @@ final class Country
     /**
      * @return string
      */
-    public function getCurrency()
+    public function getCurrencyName()
     {
-        return $this->currency;
+        return $this->currencyName;
     }
 
     /**
      * @return string
      */
-    public function getEntity()
+    public function getName()
     {
-        return $this->entity;
+        return $this->name;
     }
 
     /**
