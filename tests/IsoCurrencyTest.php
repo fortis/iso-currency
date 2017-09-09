@@ -65,9 +65,15 @@ class IsoCurrencyTest extends TestCase
         $this->assertEquals('USD', $currency);
     }
 
-    public function testGetCode()
+    public function testCode()
     {
         $currency = IsoCurrency::USD();
         $this->assertEquals('USD', $currency->getCode());
+    }
+
+    public function testMinorUnit()
+    {
+        $currency = IsoCurrency::USD();
+        $this->assertEquals(2, $currency->getMinorUnit());
     }
 }
