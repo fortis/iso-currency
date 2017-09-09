@@ -58,4 +58,10 @@ class IsoCurrencyTest extends TestCase
         $currency = IsoCurrency::USD();
         $this->assertTrue($currency->is(IsoCurrency::create('USD')));
     }
+
+    public function testToString()
+    {
+        $currency = IsoCurrency::USD();
+        $this->assertEquals('USD', $currency);
+    }
 }
