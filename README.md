@@ -1,5 +1,7 @@
 # iso-currency
 
+[![Build Status](https://travis-ci.org/fortis/iso-currency.svg?branch=master)](https://travis-ci.org/fortis/iso-currency)
+
 Very simple and easy-to-use `IsoCurrency` class to work with ISO 4217 currencies as they provided by the official ISO Maintenance Agency
 
 ## Usage
