@@ -50,6 +50,7 @@ class CurrencyIsoApiClient
         foreach ($xml->{'CcyTbl'}->{'CcyNtry'} as $countryXml) {
             $code = (string)$countryXml->{'Ccy'};
 
+            // Skip countries with empty currency code.
             if (empty($code)) {
                 continue;
             }
