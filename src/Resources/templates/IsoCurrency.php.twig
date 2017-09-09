@@ -5,11 +5,11 @@ namespace IsoCurrency;
 /**
  * Generated class IsoCurrency
  {% for currencyCode in currencyCodes %}
-* @method static IsoCurrency {{ currencyCode }}()
+* @method static IsoCurrency {{ currencyCode }}($customMinorUnit)
  {% endfor %}
 */
 class IsoCurrency
-{
+{$customMinorUnit
     /** @var  string */
     private $code;
 
