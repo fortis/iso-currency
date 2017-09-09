@@ -9,7 +9,7 @@ use IsoCurrency\Generation\Generator;
 
 require_once __DIR__."/../vendor/autoload.php";
 
-$guzzle = new GuzzleClient($config);
+$guzzle = new GuzzleClient();
 $adapter = new GuzzleAdapter($guzzle);
 $currencyIsoClient = new CurrencyIsoApiClient($adapter, new GuzzleMessageFactory);
 $loader = new Twig_Loader_Filesystem(__DIR__.'/../src/Resources/templates');
