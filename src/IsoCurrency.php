@@ -383,7 +383,7 @@ class IsoCurrency
             throw new InvalidCurrencyException('The currency code must be alphanumeric and non empty.');
         }
 
-        if (!isset(self::CURRENCIES[$currencyCode])) {
+        if (null === self::CURRENCIES[$currencyCode]) {
             throw new InvalidCurrencyException('Undefined currency code.');
         }
 
