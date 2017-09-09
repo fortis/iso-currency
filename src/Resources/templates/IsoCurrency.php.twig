@@ -2,6 +2,8 @@
 
 namespace IsoCurrency;
 
+use IsoCurrency\Exception\InvalidCurrencyException;
+
 /**
  * Generated class IsoCurrency
  {% for currencyCode in currencyCodes %}
@@ -28,15 +30,15 @@ class IsoCurrency
     public function __construct($currencyCode, $customMinorUnit = null)
     {
         if (preg_match('/^[a-zA-Z0-9]+$/', $currencyCode) !== 1) {
-            throw new \InvalidArgumentException('The currency code must be alphanumeric and non empty.');
+            throw new InvalidCurrencyException('The currency code must be alphanumeric and non empty.');
         }
 
         if (!isset(self::CURRENCIES[$currencyCode])) {
-            throw new \InvalidArgumentException('Undefined currency code.');
+            throw new InvalidCurrencyException('Undefined currency code.');
         }
 
         if ($customMinorUnit < 0) {
-            throw new \InvalidArgumentException('minorUnit cannot be less than zero.');
+            throw new InvalidCurrencyException('minorUnit cannot be less than zero.');
         }
 
         $this->code = $currencyCode;
