@@ -375,25 +375,29 @@ class IsoCurrency
      'XAG' => ['numericCode' => 961, 'minorUnit' => 0],
      ];
 
-    private function __construct($currencyCode, $numericCode, $minorUnit)
+    public function __construct($currencyCode, $customMinorUnit = null)
     {
+        if (!isset(self::CURRENCIES[$currencyCode])) {
+            throw new \InvalidArgumentException('Undefined currency code.');
+        }
+
+        if ($customMinorUnit < 0) {
+            throw new \InvalidArgumentException('minorUnit cannot be less than zero.');
+        }
+
         $this->code = $currencyCode;
-        $this->numericCode = $numericCode;
-        $this->minorUnit = $minorUnit;
+        $this->numericCode = self::CURRENCIES[$currencyCode]['numericCode'];
+        $this->minorUnit = $customMinorUnit ?: self::CURRENCIES[$currencyCode]['minorUnit'];
     }
 
-    public static function create($currencyCode)
+    public static function create($currencyCode, $customMinorUnit = null)
     {
-        return new self(
-            $currencyCode,
-            self::CURRENCIES[$currencyCode]['numericCode'],
-            self::CURRENCIES[$currencyCode]['minorUnit']
-        );
+        return new self($currencyCode,$customMinorUnit);
     }
 
     public static function __callStatic($currencyCode, $params = [])
     {
-        return self::create($currencyCode);
+        return self::create($currencyCode, $params[0]);
     }
 
     /**
