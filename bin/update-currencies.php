@@ -1,6 +1,6 @@
 <?php
 
-use IsoCurrency\Generation\CurrencyIsoClient as CurrencyIsoClient;
+use IsoCurrency\Generation\CurrencyIsoClient;
 use IsoCurrency\Generation\Country;
 use IsoCurrency\Generation\Generator;
 
