@@ -401,7 +401,8 @@ class IsoCurrency
 
     public static function __callStatic($currencyCode, $params = [])
     {
-        return self::create($currencyCode, $params[0]);
+        $customMinorUnit = isset($params[0]) ? $params[0] : null;
+        return self::create($currencyCode,$customMinorUnit);
     }
 
     /**
@@ -443,7 +444,7 @@ class IsoCurrency
     * @param IsoCurrency $currency
     * @return bool
     */
-    public function isEqualTo(IsoCurrency $currency) {
+    public function is(IsoCurrency $currency) {
         return $this->code === $currency->getCode();
     }
 }
