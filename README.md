@@ -7,11 +7,11 @@ Very simple and easy-to-use `IsoCurrency` class to work with ISO 4217 currencies
 ```php
    /**
     * Returns whether the given IsoCurrency is USD.
-    * @param \IsoCurrency\IsoCurrency $currency
+    * @param IsoCurrency $currency
     * @return bool
     */
     public function isUSD(IsoCurrency $currency) {
-        return $currency->isEqualTo(IsoCurrency::USD());
+        return $currency->is(IsoCurrency::USD());
     }
 
     /**

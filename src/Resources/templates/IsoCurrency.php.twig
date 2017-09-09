@@ -93,7 +93,7 @@ class IsoCurrency
     * @param IsoCurrency $currency
     * @return bool
     */
-    public function isEqualTo(IsoCurrency $currency) {
+    public function is(IsoCurrency $currency) {
         return $this->code === $currency->getCode();
     }
 }
