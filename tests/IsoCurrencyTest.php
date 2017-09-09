@@ -7,7 +7,7 @@ use IsoCurrency\IsoCurrency;
 use PHPUnit\Framework\TestCase;
 
 /**
- * Unit tests for class Money.
+ * Unit tests for class IsoCurrencyTest.
  */
 class IsoCurrencyTest extends TestCase
 {
