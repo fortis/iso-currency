@@ -3,34 +3,40 @@
 namespace IsoCurrency\Generation;
 
 use Twig_Environment;
-use Twig_Loader_Filesystem;
 
 class Generator
 {
     /** @var Twig_Environment */
     private $twig;
 
-    /** @var FileWriter */
-    private $fileWriter;
+    /** @var string */
+    private $template;
+
+    /** @var string */
+    private $destination;
 
     /**
      * Generator constructor.
+     * @param \Twig_Environment $twig
+     * @param string            $template
+     * @param string            $destination
      */
-    public function __construct()
+    public function __construct(Twig_Environment $twig, $template, $destination)
     {
-        $path = __DIR__.'/../Resources/templates';
-        $loader = new Twig_Loader_Filesystem($path);
-        $this->twig = new Twig_Environment($loader);
-        $this->fileWriter = new FileWriter();
+        $this->twig = $twig;
+        $this->template = $template;
+        $this->destination = $destination;
     }
 
     /**
-     * @param       $template
      * @param array $variables
+     * @throws \Twig_Error_Loader
+     * @throws \Twig_Error_Runtime
+     * @throws \Twig_Error_Syntax
      */
-    public function generate($template, array $variables)
+    public function generate(array $variables)
     {
-        $data = $this->twig->render($template, $variables);
-        $this->fileWriter->write($data);
+        $data = $this->twig->render($this->template, $variables);
+        file_put_contents($this->destination, $data);
     }
 }

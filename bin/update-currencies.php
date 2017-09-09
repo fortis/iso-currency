@@ -1,6 +1,6 @@
 <?php
 
-use IsoCurrency\Generation\Client as CurrencyIsoClient;
+use IsoCurrency\Generation\CurrencyIsoClient as CurrencyIsoClient;
 use IsoCurrency\Generation\Country;
 use IsoCurrency\Generation\Generator;
 
@@ -18,11 +18,7 @@ foreach ($countries as $country) {
     ];
 }
 
-$generator = new Generator();
-$generator->generate(
-    'IsoCurrency.php.twig',
-    [
-        'currencyCodes' => array_keys($currencies),
-        'currencies' => $currencies,
-    ]
-);
+$loader = new Twig_Loader_Filesystem(__DIR__.'/../src/Resources/templates');
+$twig = new Twig_Environment($loader);
+$generator = new Generator($twig, 'IsoCurrency.php.twig', __DIR__.'/../src/IsoCurrency.php');
+$generator->generate(['currencyCodes' => array_keys($currencies), 'currencies' => $currencies,]);
