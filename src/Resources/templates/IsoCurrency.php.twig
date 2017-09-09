@@ -1,0 +1,83 @@
+<?php
+
+namespace IsoCurrency;
+
+/**
+ * Generated class IsoCurrency
+ {% for currencyCode in currencyCodes %}
+* @method static IsoCurrency {{ currencyCode }}()
+ {% endfor %}
+*/
+class IsoCurrency
+{
+    /** @var  string */
+    private $code;
+
+    /** @var int */
+    private $numericCode;
+
+    /** @var int */
+    private $minorUnit;
+
+    const CURRENCIES = [
+ {% for currency in currencies %}
+    '{{ currency.alphabeticCode }}' => ['numericCode' => {{ currency.numericCode }}, 'minorUnit' => {{ currency.minorUnit }}],
+ {% endfor %}
+    ];
+
+    private function __construct($currencyCode, $numericCode, $minorUnit)
+    {
+        $this->code = $currencyCode;
+        $this->numericCode = $numericCode;
+        $this->minorUnit = $minorUnit;
+    }
+
+    public static function create($currencyCode)
+    {
+        return new self(
+            $currencyCode,
+            self::CURRENCIES[$currencyCode]['numericCode'],
+            self::CURRENCIES[$currencyCode]['minorUnit']
+        );
+    }
+
+    public static function __callStatic($currencyCode, $params = [])
+    {
+        return self::create($currencyCode);
+    }
+
+    /**
+    * @inheritdoc
+    * @return array
+    */
+    public function jsonSerialize()
+    {
+        return [
+            'code' => $this->code,
+            'numeric_code' => $this->numericCode,
+            'minor_unit' => $this->minorUnit,
+        ];
+    }
+
+    public function __toString()
+    {
+        return $this->code;
+    }
+
+    /**
+    * Returns currency code.
+    * @return string
+    */
+    public function getCode() {
+        return $this->code;
+    }
+
+    /**
+    * Returns whether this IsoCurrency is equal to the given currency.
+    * @param IsoCurrency $currency
+    * @return bool
+    */
+    public function isEqualTo(IsoCurrency $currency) {
+        return $this->code === $currency->getCode();
+    }
+}
