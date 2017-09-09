@@ -2,6 +2,7 @@
 
 namespace IsoCurrency\Generation;
 
+use IsoCurrency\Generation\FileWriterInterface;
 use Twig_Environment;
 
 class Generator
@@ -14,18 +15,24 @@ class Generator
 
     /** @var string */
     private $destination;
+    /**
+     * @var \IsoCurrency\Generation\FileWriter
+     */
+    private $fileWriter;
 
     /**
      * Generator constructor.
-     * @param \Twig_Environment $twig
-     * @param string            $template
-     * @param string            $destination
+     * @param \Twig_Environment   $twig
+     * @param FileWriter $fileWriter
+     * @internal param string $template
+     * @internal param string $destination
      */
-    public function __construct(Twig_Environment $twig, $template, $destination)
+    public function __construct(Twig_Environment $twig, FileWriter $fileWriter, $template, $destination)
     {
         $this->twig = $twig;
         $this->template = $template;
         $this->destination = $destination;
+        $this->fileWriter = $fileWriter;
     }
 
     /**
@@ -37,6 +44,6 @@ class Generator
     public function generate(array $variables)
     {
         $data = $this->twig->render($this->template, $variables);
-        file_put_contents($this->destination, $data);
+        $this->fileWriter->write($this->destination, $data);
     }
 }
