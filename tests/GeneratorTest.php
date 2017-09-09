@@ -2,7 +2,7 @@
 
 namespace IsoCurrency\Tests;
 
-use IsoCurrency\Generation\CurrencyIsoClient;
+use IsoCurrency\Generation\CurrencyIsoApiClient;
 use IsoCurrency\Generation\FileWriter;
 use IsoCurrency\Generation\Generator;
 use PHPUnit\Framework\TestCase;
@@ -12,7 +12,8 @@ class GeneratorTest extends TestCase
 {
     public function testGenerate()
     {
-        $client = $this->getMockBuilder(CurrencyIsoClient::class)
+        $client = $this->getMockBuilder(CurrencyIsoApiClient::class)
+                       ->disableOriginalConstructor()
                        ->setMethods(['fetch'])
                        ->getMock();
 

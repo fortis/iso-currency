@@ -2,18 +2,39 @@
 
 namespace IsoCurrency\Generation;
 
-class CurrencyIsoClient
+use Http\Client\HttpClient;
+use Http\Message\RequestFactory;
+
+class CurrencyIsoApiClient
 {
     const URL = 'http://www.currency-iso.org/dam/downloads/lists/list_one.xml';
 
+    /** @var HttpClient */
+    private $httpClient;
+
+    /** @var RequestFactory */
+    private $requestFactory;
+
+    public function __construct(HttpClient $httpClient, RequestFactory $requestFactory)
+    {
+
+        $this->httpClient = $httpClient;
+        $this->requestFactory = $requestFactory;
+    }
+
     /**
      * @return array
+     * @throws \Http\Client\Exception
+     * @throws \Exception
      */
     public function fetch()
     {
         $countries = [];
-        $content = file_get_contents(self::URL);
-        $xml = new \SimpleXMLElement($content);
+
+        $request = $this->requestFactory->createRequest('GET', self::URL);
+        $response = $this->httpClient->sendRequest($request);
+        $xml = new \SimpleXMLElement($response->getBody());
+
         foreach ($xml->{'CcyTbl'}->{'CcyNtry'} as $countryXml) {
             $code = (string)$countryXml->{'Ccy'};
 

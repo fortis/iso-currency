@@ -19,20 +19,20 @@ class Generator
      */
     private $fileWriter;
     /**
-     * @var \IsoCurrency\Generation\CurrencyIsoClient
+     * @var \IsoCurrency\Generation\CurrencyIsoApiClient
      */
     private $client;
 
     /**
      * Generator constructor.
-     * @param \IsoCurrency\Generation\CurrencyIsoClient $client
-     * @param \Twig_Environment                         $twig
-     * @param FileWriter                                $fileWriter
+     * @param \IsoCurrency\Generation\CurrencyIsoApiClient $client
+     * @param \Twig_Environment                            $twig
+     * @param FileWriter                                   $fileWriter
      * @param                                           $template
      * @param                                           $destination
      */
     public function __construct(
-        CurrencyIsoClient $client,
+        CurrencyIsoApiClient $client,
         Twig_Environment $twig,
         FileWriter $fileWriter,
         $template,
