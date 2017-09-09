@@ -16,6 +16,11 @@ class CurrencyIsoApiClient
     /** @var RequestFactory */
     private $requestFactory;
 
+    /**
+     * CurrencyIsoApiClient constructor.
+     * @param \Http\Client\HttpClient      $httpClient
+     * @param \Http\Message\RequestFactory $requestFactory
+     */
     public function __construct(HttpClient $httpClient, RequestFactory $requestFactory)
     {
 
