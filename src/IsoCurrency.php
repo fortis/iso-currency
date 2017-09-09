@@ -431,6 +431,14 @@ class IsoCurrency
     }
 
     /**
+    * Returns minor unit.
+    * @return int
+    */
+    public function getMinorUnit() {
+        return $this->minorUnit;
+    }
+
+    /**
     * Returns whether this IsoCurrency is equal to the given currency.
     * @param IsoCurrency $currency
     * @return bool
