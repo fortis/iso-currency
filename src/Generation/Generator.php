@@ -2,7 +2,6 @@
 
 namespace IsoCurrency\Generation;
 
-use IsoCurrency\Generation\FileWriterInterface;
 use Twig_Environment;
 
 class Generator
@@ -19,30 +18,53 @@ class Generator
      * @var \IsoCurrency\Generation\FileWriter
      */
     private $fileWriter;
+    /**
+     * @var \IsoCurrency\Generation\CurrencyIsoClient
+     */
+    private $client;
 
     /**
      * Generator constructor.
-     * @param \Twig_Environment   $twig
-     * @param FileWriter $fileWriter
-     * @internal param string $template
-     * @internal param string $destination
+     * @param \IsoCurrency\Generation\CurrencyIsoClient $client
+     * @param \Twig_Environment                         $twig
+     * @param FileWriter                                $fileWriter
+     * @param                                           $template
+     * @param                                           $destination
      */
-    public function __construct(Twig_Environment $twig, FileWriter $fileWriter, $template, $destination)
-    {
+    public function __construct(
+        CurrencyIsoClient $client,
+        Twig_Environment $twig,
+        FileWriter $fileWriter,
+        $template,
+        $destination
+    ) {
         $this->twig = $twig;
         $this->template = $template;
         $this->destination = $destination;
         $this->fileWriter = $fileWriter;
+        $this->client = $client;
     }
 
     /**
-     * @param array $variables
      * @throws \Twig_Error_Loader
      * @throws \Twig_Error_Runtime
      * @throws \Twig_Error_Syntax
      */
-    public function generate(array $variables)
+    public function generate()
     {
+        /** @var Country[] $countries */
+        $countries = $this->client->fetch();
+        $currencies = [];
+        foreach ($countries as $country) {
+            $code = $country->getAlphabeticCode();
+            $currencies[$code] = [
+                'alphabeticCode' => $code,
+                'minorUnit' => $country->getMinorUnit(),
+                'numericCode' => $country->getNumericCode(),
+            ];
+        }
+
+        $variables = ['currencyCodes' => array_keys($currencies), 'currencies' => $currencies];
         $data = $this->twig->render($this->template, $variables);
         $this->fileWriter->write($this->destination, $data);
     }

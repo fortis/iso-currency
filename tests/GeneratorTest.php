@@ -2,6 +2,7 @@
 
 namespace IsoCurrency\Tests;
 
+use IsoCurrency\Generation\CurrencyIsoClient;
 use IsoCurrency\Generation\FileWriter;
 use IsoCurrency\Generation\Generator;
 use PHPUnit\Framework\TestCase;
@@ -11,6 +12,14 @@ class GeneratorTest extends TestCase
 {
     public function testGenerate()
     {
+        $client = $this->getMockBuilder(CurrencyIsoClient::class)
+                       ->setMethods(['fetch'])
+                       ->getMock();
+
+        $client->method('fetch')->willReturn([]);
+        $client->expects($this->once())
+               ->method('fetch');
+
         $twig = $this->getMockBuilder(Twig_Environment::class)
                      ->setMethods(['render'])
                      ->getMock();
@@ -26,12 +35,13 @@ class GeneratorTest extends TestCase
                    ->method('write');
 
         $generator = new Generator(
+            $client,
             $twig,
             $fileWriter,
             'IsoCurrency.php.twig',
             '/dev/null'
         );
 
-        $generator->generate([]);
+        $generator->generate();
     }
 }

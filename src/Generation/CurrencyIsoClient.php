@@ -2,7 +2,7 @@
 
 namespace IsoCurrency\Generation;
 
-final class CurrencyIsoClient
+class CurrencyIsoClient
 {
     const URL = 'http://www.currency-iso.org/dam/downloads/lists/list_one.xml';
 
