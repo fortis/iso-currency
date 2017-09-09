@@ -1,6 +1,7 @@
 # iso-currency
 
 [![Build Status](https://travis-ci.org/fortis/iso-currency.svg?branch=master)](https://travis-ci.org/fortis/iso-currency)
+[![Coverage Status](https://coveralls.io/repos/github/fortis/iso-currency/badge.svg?branch=master)](https://coveralls.io/github/fortis/iso-currency?branch=master)
 
 Very simple and easy-to-use `IsoCurrency` class to work with ISO 4217 currencies as they provided by the official ISO Maintenance Agency
 
