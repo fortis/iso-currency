@@ -402,7 +402,7 @@ class IsoCurrency
     public static function __callStatic($currencyCode, $params = [])
     {
         $customMinorUnit = isset($params[0]) ? $params[0] : null;
-        return self::create($currencyCode,$customMinorUnit);
+        return self::create($currencyCode, $customMinorUnit);
     }
 
     /**
