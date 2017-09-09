@@ -10,7 +10,7 @@ use IsoCurrency\Exception\InvalidCurrencyException;
 * @method static IsoCurrency {{ currencyCode }}($customMinorUnit = null)
  {% endfor %}
 */
-class IsoCurrency
+class IsoCurrency implements \JsonSerializable
 {
     /** @var  string */
     private $code;

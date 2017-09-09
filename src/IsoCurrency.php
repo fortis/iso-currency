@@ -185,7 +185,7 @@ use IsoCurrency\Exception\InvalidCurrencyException;
  * @method static IsoCurrency XPT($customMinorUnit = null)
  * @method static IsoCurrency XAG($customMinorUnit = null)
  */
-class IsoCurrency
+class IsoCurrency implements \JsonSerializable
 {
     /** @var  string */
     private $code;
