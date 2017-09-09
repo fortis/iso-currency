@@ -4,7 +4,6 @@ namespace IsoCurrency\Generation;
 
 /**
  * Class Country
- * @package MoneyPHP\IsoCurrencies
  */
 final class Country
 {
