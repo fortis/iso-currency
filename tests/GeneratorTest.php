@@ -2,6 +2,7 @@
 
 namespace IsoCurrency\Tests;
 
+use IsoCurrency\Generation\Country;
 use IsoCurrency\Generation\CurrencyIsoApiClient;
 use IsoCurrency\Generation\FileWriter;
 use IsoCurrency\Generation\Generator;
@@ -17,7 +18,8 @@ class GeneratorTest extends TestCase
                        ->setMethods(['fetch'])
                        ->getMock();
 
-        $client->method('fetch')->willReturn([]);
+        $usa = new Country('UNITED STATES OF AMERICA (THE)', 'US Dollar', 'USD', 840, 2);
+        $client->method('fetch')->willReturn([$usa]);
         $client->expects($this->once())
                ->method('fetch');
 
