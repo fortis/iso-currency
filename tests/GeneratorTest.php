@@ -28,12 +28,13 @@ class GeneratorTest extends TestCase
         $twig->expects($this->once())
              ->method('render');
 
-        $fileWriter = $this->getMockBuilder(FileWriter::class)
-                           ->setMethods(['write'])
+        $fileWriter = $this->getMockBuilder(\SplFileObject::class)
+                           ->setConstructorArgs(['/dev/null', 'w'])
+                           ->setMethods(['fwrite'])
                            ->getMock();
 
         $fileWriter->expects($this->once())
-                   ->method('write');
+                   ->method('fwrite');
 
         $generator = new Generator(
             $client,

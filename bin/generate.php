@@ -15,14 +15,13 @@ try {
     $currencyIsoClient = new CurrencyIsoApiClient($adapter, new GuzzleMessageFactory);
     $loader = new Twig_Loader_Filesystem(__DIR__.'/../src/Resources/templates');
     $twig = new Twig_Environment($loader);
-    $fileWriter = new FileWriter();
+    $fileObject = new \SplFileObject(__DIR__.'/../src/IsoCurrency.php', 'w');
 
     $generator = new Generator(
         $currencyIsoClient,
         $twig,
-        $fileWriter,
-        'IsoCurrency.php.twig',
-        __DIR__.'/../src/IsoCurrency.php'
+        $fileObject,
+        'IsoCurrency.php.twig'
     );
 
     $generator->generate();

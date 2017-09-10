@@ -12,12 +12,10 @@ class Generator
     /** @var string */
     private $template;
 
-    /** @var string */
-    private $destination;
     /**
      * @var \IsoCurrency\Generation\FileWriter
      */
-    private $fileWriter;
+    private $fileObject;
     /**
      * @var \IsoCurrency\Generation\CurrencyIsoApiClient
      */
@@ -25,23 +23,20 @@ class Generator
 
     /**
      * Generator constructor.
-     * @param \IsoCurrency\Generation\CurrencyIsoApiClient $client
-     * @param \Twig_Environment                            $twig
-     * @param FileWriter                                   $fileWriter
-     * @param                                           $template
-     * @param                                           $destination
+     * @param \IsoCurrency\Generation\CurrencyIsoApiClient      $client
+     * @param \Twig_Environment                                 $twig
+     * @param \SplFileObject                                    $fileObject
+     * @param                                                   $template
      */
     public function __construct(
         CurrencyIsoApiClient $client,
         Twig_Environment $twig,
-        FileWriter $fileWriter,
-        $template,
-        $destination
+        \SplFileObject $fileObject,
+        $template
     ) {
         $this->twig = $twig;
         $this->template = $template;
-        $this->destination = $destination;
-        $this->fileWriter = $fileWriter;
+        $this->fileObject = $fileObject;
         $this->client = $client;
     }
 
@@ -66,6 +61,7 @@ class Generator
 
         $variables = ['currencyCodes' => array_keys($currencies), 'currencies' => $currencies];
         $data = $this->twig->render($this->template, $variables);
-        $this->fileWriter->write($this->destination, $data);
+
+        return $this->fileObject->fwrite($data);
     }
 }
