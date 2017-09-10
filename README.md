@@ -21,24 +21,18 @@ composer require fortis/iso-currency
 ## Use
 
 ``` php
-   /**
-    * Returns whether the given IsoCurrency is USD.
-    * @param IsoCurrency $currency
-    * @return bool
-    */
-    public function isUSD(IsoCurrency $currency) {
-        return $currency->is(IsoCurrency::USD());
-    }
+    // Create IsoCurrency instance.
+    $currency = new IsoCurrency('EUR');     // public constructor  
+    $currency = IsoCurrency::create('EUR'); // static factory method.
+    $currency = IsoCurrency::EUR();         // magic method with autocomplete on IsoCurrency::.
 
-    /**
-     * Creates IsoCurrency object.
-     * @return IsoCurrency
-     */
-    public function createEURCurrency() {
-        // return new IsoCurrency('EUR');
-        // return IsoCurrency::create('EUR');
-        return IsoCurrency::EUR();
-    }
+    // Currency validation.
+    $currency = new IsoCurrency('EUE');    // throws InvalidCurrencyException.
+
+    // Check whether the given IsoCurrency is USD/EUR/etc.
+    $currency = new IsoCurrency('USD');
+    $currency->is(IsoCurrency::EUR()); // false
+    $currency->is(IsoCurrency::USD()); // true
 ```
 
 ## License
