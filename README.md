@@ -28,12 +28,12 @@ Also you can create new currency object with Currency class and autocomplete: `n
 
 ``` php
 // Create Currency instance.
-$currency = new Currency(CurrencyCode::EUR);     // public constructor  
+$currency = new Currency(CurrencyCode::EUR);     // constructor  
 $currency = Currency::create(CurrencyCode::EUR); // static factory method
-$currency = Currency::EUR();         // magic method with autocomplete on Currency::
+$currency = Currency::EUR();                     // short syntax with autocomplete on ::
 
 // Currency code validation.
-$currency = new Currency('EUE');    // throws InvalidCurrencyException
+$currency = new Currency('EUE'); // throws InvalidCurrencyException
 
 // Check whether the given Currency is USD/EUR/etc.
 $currency = new Currency(CurrencyCode::EUR);
