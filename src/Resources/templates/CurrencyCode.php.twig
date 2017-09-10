@@ -1,0 +1,13 @@
+<?php
+
+namespace Currency;
+
+/**
+ * Generated class CurrencyCode
+*/
+class CurrencyCode
+{
+{% for key, currency in currencies %}
+    const {{ key }} = '{{ currency.alphabeticCode }}';
+{% endfor %}
+}
