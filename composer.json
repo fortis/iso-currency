@@ -3,6 +3,7 @@
     "description": "Class to work with ISO 4217 currencies as they provided by the official ISO Maintenance Agency",
     "type": "library",
     "keywords": ["money", "currency", "ISO 4217", "ISO", "currencies", "library"],
+    "homepage": "https://github.com/fortis/iso-currency",
     "license": "MIT",
     "authors": [
         {
