@@ -37,8 +37,8 @@ $currency = new Currency('EUE'); // throws InvalidCurrencyException
 
 // Check whether the given Currency is USD/EUR/etc.
 $currency = new Currency(CurrencyCode::EUR);
-$currency->is(Currency::EUR()); // false
-$currency->is(Currency::USD()); // true
+$currency->is(Currency::EUR()); // true
+$currency->is(Currency::USD()); // false
 ```
 
 ## License
