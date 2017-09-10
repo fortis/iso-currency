@@ -21,8 +21,8 @@ composer require fortis/iso-currency
 
 ## Use
 
-Don't type currency codes as strings, instead it's better to use constants from auto generated CurrencyCode class as it's always up-to-date with currency-iso.org and prevents you making typos.
-For example, use `CurrencyCode::USD` instead of `'USD'`. Autocomplete will make it a little easier.
+Don't type currency codes as strings, instead it's better to use constants from auto generated CurrencyCode class as it's always up-to-date with currency-iso.org and helps you avoid typos.
+For example, use `CurrencyCode::USD` instead of `'USD'`. Autocomplete will make it easier.
 
 Also you can create new currency object with Currency class and autocomplete: `new Currency::USD()`.
 
