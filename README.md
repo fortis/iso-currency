@@ -23,11 +23,11 @@ composer require fortis/iso-currency
 ``` php
 // Create IsoCurrency instance.
 $currency = new IsoCurrency('EUR');     // public constructor  
-$currency = IsoCurrency::create('EUR'); // static factory method.
-$currency = IsoCurrency::EUR();         // magic method with autocomplete on IsoCurrency::.
+$currency = IsoCurrency::create('EUR'); // static factory method
+$currency = IsoCurrency::EUR();         // magic method with autocomplete on IsoCurrency::
 
 // Currency validation.
-$currency = new IsoCurrency('EUE');    // throws InvalidCurrencyException.
+$currency = new IsoCurrency('EUE');    // throws InvalidCurrencyException
 
 // Check whether the given IsoCurrency is USD/EUR/etc.
 $currency = new IsoCurrency('USD');
