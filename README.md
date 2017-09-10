@@ -5,6 +5,12 @@
 
 Very simple and easy-to-use `IsoCurrency` class to work with ISO 4217 currencies as they provided by the official ISO Maintenance Agency
 
+## Install
+Via Composer
+```bash
+composer require "fortis/iso-currency"
+```
+
 ## Usage
 
 ```php
