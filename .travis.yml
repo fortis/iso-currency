@@ -9,7 +9,6 @@ php:
 before_script:
   - composer self-update
   - composer install
-  - composer generate-iso-currency
 
 script:
   - mkdir -p build/logs
