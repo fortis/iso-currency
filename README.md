@@ -5,15 +5,22 @@
 
 Very simple and easy-to-use `IsoCurrency` class to work with ISO 4217 currencies as they provided by the official ISO Maintenance Agency
 
+## What is ISO 4217
+
+> ISO 4217 is a standard published by the International Organization for Standardization, which delineates currency designators, country codes (alpha and numeric), and references to minor units in three tables.
+>
+> *-- [Wikipedia](http://en.wikipedia.org/wiki/ISO_4217)*
+
 ## Install
-Via Composer
-```bash
+
+Install directly from command line using Composer
+``` bash
 composer require fortis/iso-currency
 ```
 
-## Usage
+## Use
 
-```php
+``` php
    /**
     * Returns whether the given IsoCurrency is USD.
     * @param IsoCurrency $currency
@@ -33,3 +40,11 @@ composer require fortis/iso-currency
         return IsoCurrency::EUR();
     }
 ```
+
+## License
+
+iso-currency is licensed under the MIT license.
+
+## Source(s)
+
+* "[ISO 4217](http://en.wikipedia.org/wiki/ISO_4217)" by [Wikipedia](http://www.wikipedia.org) licensed under [CC BY-SA 3.0 Unported License](http://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License)
