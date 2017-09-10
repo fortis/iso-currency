@@ -8,7 +8,7 @@ Very simple and easy-to-use `IsoCurrency` class to work with ISO 4217 currencies
 ## Install
 Via Composer
 ```bash
-composer require "fortis/iso-currency"
+composer require fortis/iso-currency
 ```
 
 ## Usage
