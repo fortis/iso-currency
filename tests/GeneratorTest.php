@@ -1,11 +1,10 @@
 <?php
 
-namespace IsoCurrency\Tests;
+namespace Currency\Tests;
 
-use IsoCurrency\Generation\Country;
-use IsoCurrency\Generation\CurrencyIsoApiClient;
-use IsoCurrency\Generation\FileWriter;
-use IsoCurrency\Generation\Generator;
+use Currency\Generation\Country;
+use Currency\Generation\CurrencyIsoApiClient;
+use Currency\Generation\Generator;
 use PHPUnit\Framework\TestCase;
 use Twig_Environment;
 
@@ -38,14 +37,7 @@ class GeneratorTest extends TestCase
         $fileWriter->expects($this->once())
                    ->method('fwrite');
 
-        $generator = new Generator(
-            $client,
-            $twig,
-            $fileWriter,
-            'IsoCurrency.php.twig',
-            '/dev/null'
-        );
-
-        $generator->generate();
+        $generator = new Generator($client, $twig);
+        $generator->generate('Currency.php.twig', $fileWriter);
     }
 }

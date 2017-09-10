@@ -1,8 +1,8 @@
 <?php
 
-namespace IsoCurrency\Tests;
+namespace Currency\Tests;
 
-use IsoCurrency\Generation\Country;
+use Currency\Generation\Country;
 use PHPUnit\Framework\TestCase;
 
 class CountryTest extends TestCase

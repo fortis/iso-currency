@@ -1,87 +1,87 @@
 <?php
 
-namespace IsoCurrency\Tests;
+namespace Currency\Tests;
 
-use IsoCurrency\Exception\InvalidCurrencyException;
-use IsoCurrency\IsoCurrency;
+use Currency\Exception\InvalidCurrencyException;
+use Currency\Currency;
 use PHPUnit\Framework\TestCase;
 
 /**
- * Unit tests for class IsoCurrencyTest.
+ * Unit tests for class CurrencyTest.
  */
-class IsoCurrencyTest extends TestCase
+class CurrencyTest extends TestCase
 {
     public function testCreateInstance()
     {
         $this->assertInstanceOf(
-            IsoCurrency::class,
-            new IsoCurrency('USD')
+            Currency::class,
+            new Currency('USD')
         );
 
         $this->assertInstanceOf(
-            IsoCurrency::class,
-            IsoCurrency::create('USD')
+            Currency::class,
+            Currency::create('USD')
         );
 
         $this->assertInstanceOf(
-            IsoCurrency::class,
-            IsoCurrency::USD()
+            Currency::class,
+            Currency::USD()
         );
     }
 
     public function testUndefinedCurrency()
     {
         $this->expectException(InvalidCurrencyException::class);
-        IsoCurrency::create('UASD');
+        Currency::create('UASD');
     }
 
     public function testEmptyCurrency()
     {
         $this->expectException(InvalidCurrencyException::class);
-        IsoCurrency::create('');
+        Currency::create('');
     }
 
     public function testCustomMinorUnit()
     {
-        $usd = IsoCurrency::USD(0);
+        $usd = Currency::USD(0);
         $this->assertEquals(0, $usd->getMinorUnit());
     }
 
     public function testNegativeMinorUnit()
     {
         $this->expectException(InvalidCurrencyException::class);
-        IsoCurrency::USD(-2);
+        Currency::USD(-2);
     }
 
     public function testIs()
     {
-        $currency = IsoCurrency::USD();
-        $this->assertTrue($currency->is(IsoCurrency::create('USD')));
+        $currency = Currency::USD();
+        $this->assertTrue($currency->is(Currency::create('USD')));
     }
 
     public function testToString()
     {
-        $currency = IsoCurrency::USD();
+        $currency = Currency::USD();
         $this->assertEquals('USD', $currency);
     }
 
     public function testCode()
     {
-        $currency = IsoCurrency::USD();
+        $currency = Currency::USD();
         $this->assertEquals('USD', $currency->getCode());
     }
 
     public function testMinorUnit()
     {
-        $currency = IsoCurrency::USD();
+        $currency = Currency::USD();
         $this->assertEquals(2, $currency->getMinorUnit());
     }
 
     public function testJsonSerialization()
     {
-        $currency = IsoCurrency::USD();
+        $currency = Currency::USD();
         $json = json_encode($currency);
         $data = json_decode($json);
-        $this->assertTrue($currency->is(IsoCurrency::create($data->code)));
+        $this->assertTrue($currency->is(Currency::create($data->code)));
     }
 }

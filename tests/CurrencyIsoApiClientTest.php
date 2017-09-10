@@ -1,10 +1,10 @@
 <?php
 
-namespace IsoCurrency\Tests;
+namespace Currency\Tests;
 
 use Http\Client\HttpClient;
 use Http\Message\RequestFactory;
-use IsoCurrency\Generation\CurrencyIsoApiClient;
+use Currency\Generation\CurrencyIsoApiClient;
 use PHPUnit\Framework\TestCase;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
