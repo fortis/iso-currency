@@ -21,13 +21,18 @@ composer require fortis/iso-currency
 
 ## Use
 
+Don't type currency codes as strings, instead it's better to use constants from auto generated CurrencyCode class as it's always up-to-date with currency-iso.org and prevents you making typos.
+For example, use `CurrencyCode::USD` instead of `'USD'`. Autocomplete will make it a little easier.
+
+Also you can create new currency object with Currency class and autocomplete: `new Currency::USD()`.
+
 ``` php
 // Create Currency instance.
 $currency = new Currency(CurrencyCode::EUR);     // public constructor  
 $currency = Currency::create(CurrencyCode::EUR); // static factory method
 $currency = Currency::EUR();         // magic method with autocomplete on Currency::
 
-// Currency validation.
+// Currency code validation.
 $currency = new Currency('EUE');    // throws InvalidCurrencyException
 
 // Check whether the given Currency is USD/EUR/etc.
