@@ -19,11 +19,11 @@ try {
     $generator = new Generator($currencyIsoClient, $twig);
 
     $basePath = __DIR__.'/../src';
-    $fileObject = new \SplFileObject($basePath.'/Currency.php', 'w');
-    $generator->generate('Currency.php.twig', $fileObject);
+    $currencyFile = new \SplFileObject($basePath.'/Currency.php', 'w');
+    $generator->generate('Currency.php.twig', $currencyFile);
 
-    $fileObject = new \SplFileObject($basePath.'/CurrencyCode.php', 'w');
-    $generator->generate('CurrencyCode.php.twig', $fileObject);
+    $currencyCodeFile = new \SplFileObject($basePath.'/CurrencyCode.php', 'w');
+    $generator->generate('CurrencyCode.php.twig', $currencyCodeFile);
 } catch (\Exception $exception) {
     error_log($exception->getMessage());
 }
