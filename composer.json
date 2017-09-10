@@ -37,12 +37,12 @@
     },
     "autoload": {
         "psr-4": {
-            "IsoCurrency\\": "src/"
+            "Currency\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "IsoCurrency\\Tests\\": "tests/"
+            "Currency\\Tests\\": "tests/"
         }
     },
     "scripts": {

@@ -1,16 +1,16 @@
 <?php
 
-namespace IsoCurrency;
+namespace Currency;
 
-use IsoCurrency\Exception\InvalidCurrencyException;
+use Currency\Exception\InvalidCurrencyException;
 
 /**
- * Generated class IsoCurrency
+ * Generated class Currency
  {% for currencyCode in currencyCodes %}
-* @method static IsoCurrency {{ currencyCode }}($customMinorUnit = null)
+* @method static Currency {{ currencyCode }}($customMinorUnit = null)
  {% endfor %}
 */
-class IsoCurrency implements \JsonSerializable
+class Currency implements \JsonSerializable
 {
     /** @var  string */
     private $code;
@@ -88,11 +88,11 @@ class IsoCurrency implements \JsonSerializable
     }
 
     /**
-    * Returns whether this IsoCurrency is equal to the given currency.
-    * @param IsoCurrency $currency
+    * Returns whether this Currency is equal to the given currency.
+    * @param Currency $currency
     * @return bool
     */
-    public function is(IsoCurrency $currency) {
+    public function is(Currency $currency) {
         return $this->code === $currency->getCode();
     }
 

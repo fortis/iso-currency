@@ -1,10 +1,10 @@
 <?php
 
-namespace IsoCurrency\Exception;
+namespace Currency\Exception;
 
 /**
  * Class InvalidCurrencyException
- * @package IsoCurrency\Exception
+ * @package Currency\Exception
  */
 class InvalidCurrencyException extends \Exception
 {

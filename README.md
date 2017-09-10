@@ -4,7 +4,7 @@
 [![Coveralls](https://img.shields.io/coveralls/fortis/iso-currency/master.svg)](https://coveralls.io/github/fortis/iso-currency?branch=master)
 [![Packagist](https://img.shields.io/packagist/l/fortis/iso-currency.svg)](https://packagist.org/packages/fortis/iso-currency)
 
-Very simple and easy-to-use `IsoCurrency` class to work with ISO 4217 currencies as they provided by the official ISO Maintenance Agency
+Very simple and easy-to-use `Currency` class to work with ISO 4217 currencies as they provided by the official ISO Maintenance Agency
 
 ## What is ISO 4217
 
@@ -22,18 +22,18 @@ composer require fortis/iso-currency
 ## Use
 
 ``` php
-// Create IsoCurrency instance.
-$currency = new IsoCurrency('EUR');     // public constructor  
-$currency = IsoCurrency::create('EUR'); // static factory method
-$currency = IsoCurrency::EUR();         // magic method with autocomplete on IsoCurrency::
+// Create Currency instance.
+$currency = new Currency(CurrencyCode::EUR);     // public constructor  
+$currency = Currency::create(CurrencyCode::EUR); // static factory method
+$currency = Currency::EUR();         // magic method with autocomplete on Currency::
 
 // Currency validation.
-$currency = new IsoCurrency('EUE');    // throws InvalidCurrencyException
+$currency = new Currency('EUE');    // throws InvalidCurrencyException
 
-// Check whether the given IsoCurrency is USD/EUR/etc.
-$currency = new IsoCurrency('USD');
-$currency->is(IsoCurrency::EUR()); // false
-$currency->is(IsoCurrency::USD()); // true
+// Check whether the given Currency is USD/EUR/etc.
+$currency = new Currency(CurrencyCode::EUR);
+$currency->is(Currency::EUR()); // false
+$currency->is(Currency::USD()); // true
 ```
 
 ## License

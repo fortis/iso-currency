@@ -1,6 +1,6 @@
 <?php
 
-namespace IsoCurrency\Generation;
+namespace Currency\Generation;
 
 use Http\Client\HttpClient;
 use Http\Message\RequestFactory;

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <phpunit colors="true" backupGlobals="false" bootstrap="vendor/autoload.php">
     <testsuites>
-        <testsuite name="IsoCurrency test suite">
+        <testsuite name="Currency test suite">
             <directory>tests</directory>
         </testsuite>
     </testsuites>
