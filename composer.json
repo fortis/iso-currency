@@ -11,6 +11,10 @@
             "email": "imacoda@gmail.com"
         }
     ],
+    "support": {
+        "issues": "https://github.com/fortis/iso-currency/issues",
+        "source": "https://github.com/fortis/iso-currency"
+    },
     "require": {
         "php": ">=5.6"
     },
@@ -24,7 +28,11 @@
     },
     "autoload": {
         "psr-4": {
-            "IsoCurrency\\": "src/",
+            "IsoCurrency\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
             "IsoCurrency\\Tests\\": "tests/"
         }
     },
