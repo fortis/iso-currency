@@ -21,12 +21,6 @@ class IsoCurrency implements \JsonSerializable
     /** @var int */
     private $minorUnit;
 
-    const CURRENCIES = [
- {% for currency in currencies %}
-    '{{ currency.alphabeticCode }}' => ['numericCode' => {{ currency.numericCode }}, 'minorUnit' => {{ currency.minorUnit }}],
- {% endfor %}
-    ];
-
     public function __construct($currencyCode, $customMinorUnit = null)
     {
         if (preg_match('/^[a-zA-Z0-9]+$/', $currencyCode) !== 1) {
@@ -66,9 +60,9 @@ class IsoCurrency implements \JsonSerializable
     public function jsonSerialize()
     {
         return [
-            'code' => $this->code,
-            'numeric_code' => $this->numericCode,
-            'minor_unit' => $this->minorUnit,
+        'code' => $this->code,
+        'numeric_code' => $this->numericCode,
+        'minor_unit' => $this->minorUnit,
         ];
     }
 
@@ -101,4 +95,11 @@ class IsoCurrency implements \JsonSerializable
     public function is(IsoCurrency $currency) {
         return $this->code === $currency->getCode();
     }
+
+    const CURRENCIES = [
+    {% for currency in currencies %}
+    '{{ currency.alphabeticCode }}' => ['numericCode' => {{ currency.numericCode }}, 'minorUnit' => {{ currency.minorUnit }}],
+    {% endfor %}
+    ];
+
 }
