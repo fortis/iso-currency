@@ -2,6 +2,7 @@
 
 [![Travis](https://img.shields.io/travis/fortis/iso-currency.svg?branch=master)](https://github.com/fortis/iso-currency)
 [![Coveralls](https://img.shields.io/coveralls/fortis/iso-currency/master.svg)](https://coveralls.io/github/fortis/iso-currency?branch=master)
+[![Packagist](https://img.shields.io/packagist/l/fortis/iso-currency.svg)](https://packagist.org/packages/fortis/iso-currency)
 
 Very simple and easy-to-use `IsoCurrency` class to work with ISO 4217 currencies as they provided by the official ISO Maintenance Agency
 
