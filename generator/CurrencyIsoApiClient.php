@@ -1,6 +1,6 @@
 <?php
 
-namespace Currency\Generation;
+namespace CurrencyGenerator;
 
 use Http\Client\HttpClient;
 use Http\Message\RequestFactory;

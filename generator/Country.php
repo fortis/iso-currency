@@ -1,6 +1,6 @@
 <?php
 
-namespace Currency\Generation;
+namespace CurrencyGenerator;
 
 /**
  * Class Country

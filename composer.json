@@ -42,11 +42,12 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "Currency\\Tests\\": "tests/"
+            "Currency\\Tests\\": "tests",
+            "CurrencyGenerator\\": "generator/"
         }
     },
     "scripts": {
-        "generate-iso-currency": [
+        "iso-currency-generate": [
             "php ./bin/generate.php"
         ]
     }

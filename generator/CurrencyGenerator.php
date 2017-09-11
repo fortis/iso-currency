@@ -1,20 +1,20 @@
 <?php
 
-namespace Currency\Generation;
+namespace CurrencyGenerator;
 
 use Twig_Environment;
 
-class Generator
+class CurrencyGenerator
 {
     /** @var Twig_Environment */
     private $twig;
 
-    /** @var \Currency\Generation\CurrencyIsoApiClient */
+    /** @var CurrencyIsoApiClient */
     private $client;
 
     /**
      * Generator constructor.
-     * @param \Currency\Generation\CurrencyIsoApiClient $client
+     * @param CurrencyIsoApiClient $client
      * @param \Twig_Environment                         $twig
      */
     public function __construct(CurrencyIsoApiClient $client, Twig_Environment $twig)

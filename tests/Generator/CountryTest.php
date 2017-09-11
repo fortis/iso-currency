@@ -1,8 +1,9 @@
 <?php
 
-namespace Currency\Tests;
+namespace Currency\Tests\Generator;
 
-use Currency\Generation\Country;
+
+use CurrencyGenerator\Country;
 use PHPUnit\Framework\TestCase;
 
 class CountryTest extends TestCase

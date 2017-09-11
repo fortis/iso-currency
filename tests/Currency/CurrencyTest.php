@@ -1,8 +1,8 @@
 <?php
 
-namespace Currency\Tests;
+namespace Currency\Tests\Currency;
 
-use Currency\Exception\InvalidCurrencyException;
+use Currency\InvalidCurrencyException;
 use Currency\Currency;
 use PHPUnit\Framework\TestCase;
 

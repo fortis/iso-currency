@@ -1,10 +1,10 @@
 <?php
 
-namespace Currency\Tests;
+namespace Currency\Tests\Generator;
 
+use CurrencyGenerator\CurrencyIsoApiClient;
 use Http\Client\HttpClient;
 use Http\Message\RequestFactory;
-use Currency\Generation\CurrencyIsoApiClient;
 use PHPUnit\Framework\TestCase;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;

@@ -1,10 +1,10 @@
 <?php
 
-namespace Currency\Tests;
+namespace Currency\Tests\Generator;
 
-use Currency\Generation\Country;
-use Currency\Generation\CurrencyIsoApiClient;
-use Currency\Generation\Generator;
+use CurrencyGenerator\Country;
+use CurrencyGenerator\CurrencyGenerator;
+use CurrencyGenerator\CurrencyIsoApiClient;
 use PHPUnit\Framework\TestCase;
 use Twig_Environment;
 
@@ -37,7 +37,7 @@ class GeneratorTest extends TestCase
         $fileWriter->expects($this->once())
                    ->method('fwrite');
 
-        $generator = new Generator($client, $twig);
+        $generator = new CurrencyGenerator($client, $twig);
         $generator->generate('Currency.php.twig', $fileWriter);
     }
 }
