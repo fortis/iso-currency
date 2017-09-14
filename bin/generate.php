@@ -5,7 +5,7 @@ use GuzzleHttp\Client as GuzzleClient;
 use Http\Adapter\Guzzle6\Client as GuzzleAdapter;
 use Http\Message\MessageFactory\GuzzleMessageFactory;
 
-require_once __DIR__."/../vendor/autoload.php";
+require_once __DIR__.'/../vendor/autoload.php';
 
 try {
     $guzzle = new GuzzleClient();
