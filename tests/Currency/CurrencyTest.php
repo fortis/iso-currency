@@ -11,21 +11,23 @@ use PHPUnit\Framework\TestCase;
  */
 class CurrencyTest extends TestCase
 {
-    public function testCreateInstance()
+    public function createInstanceDataProvider()
+    {
+        return [
+            [new Currency('USD')],
+            [Currency::create('USD')],
+            [Currency::USD()],
+        ];
+    }
+
+    /**
+     * @dataProvider createInstanceDataProvider
+     */
+    public function testCreateInstance($instance)
     {
         $this->assertInstanceOf(
             Currency::class,
-            new Currency('USD')
-        );
-
-        $this->assertInstanceOf(
-            Currency::class,
-            Currency::create('USD')
-        );
-
-        $this->assertInstanceOf(
-            Currency::class,
-            Currency::USD()
+            $instance
         );
     }
 
