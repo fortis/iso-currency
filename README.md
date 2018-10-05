@@ -3,6 +3,7 @@
 [![Travis](https://img.shields.io/travis/fortis/iso-currency.svg?branch=master)](https://travis-ci.org/fortis/iso-currency)
 [![Coveralls](https://img.shields.io/coveralls/fortis/iso-currency/master.svg)](https://coveralls.io/github/fortis/iso-currency?branch=master)
 [![Packagist](https://img.shields.io/packagist/l/fortis/iso-currency.svg)](https://packagist.org/packages/fortis/iso-currency)
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Ffortis%2Fiso-currency.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Ffortis%2Fiso-currency?ref=badge_shield)
 
 Very simple and easy-to-use `Currency` class to work with ISO 4217 currencies as they provided by the official ISO Maintenance Agency
 
@@ -44,6 +45,9 @@ $currency->is(Currency::USD()); // false
 ## License
 
 iso-currency is licensed under the MIT license.
+
+
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Ffortis%2Fiso-currency.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Ffortis%2Fiso-currency?ref=badge_large)
 
 ## Source(s)
 
